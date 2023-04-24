@@ -1,9 +1,15 @@
 import React, { useState } from "react";
-import { Layout, Header, InputContainer, ListContainer, ListTitle, ListWrapper } from "./TodoList.styles";
+import {
+  Layout,
+  Header,
+  InputContainer,
+  ListContainer,
+  ListTitle,
+  ListWrapper,
+} from "./TodoList.styles";
 import Todo from "../Todo/Todo";
 
-const TodoList = () => {
-  const [todos, setTodos] = useState([]);
+const TodoList = ({ todos, setTodos }) => {
   const [inputTitle, setInputTitle] = useState("");
   const [inputContent, setInputContent] = useState("");
 
@@ -76,13 +82,23 @@ const TodoList = () => {
         <ListTitle>Working.. 🔥</ListTitle>
         <ListWrapper>
           {workingTodos.map((todo) => (
-            <Todo key={todo.id} todo={todo} toggleTodoStatus={toggleTodoStatus} deleteTodo={deleteTodo} />
+            <Todo
+            key={todo.id}
+            todo={todo}
+            toggleTodoStatus={toggleTodoStatus}
+            deleteTodo={deleteTodo}
+          />
           ))}
         </ListWrapper>
         <ListTitle>Done..! 🎉</ListTitle>
         <ListWrapper>
           {doneTodos.map((todo) => (
-            <Todo key={todo.id} todo={todo} toggleTodoStatus={toggleTodoStatus} deleteTodo={deleteTodo} />
+            <Todo
+            key={todo.id}
+            todo={todo}
+            toggleTodoStatus={toggleTodoStatus}
+            deleteTodo={deleteTodo}
+          />
           ))}
         </ListWrapper>
       </ListContainer>

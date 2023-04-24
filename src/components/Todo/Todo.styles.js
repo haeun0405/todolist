@@ -7,6 +7,7 @@ padding: 15px;
 `;
 
 export const TodoTitle = styled.h3`
+  position: relative;
   margin: 0;
   margin-bottom: 10px;
 `;
@@ -19,6 +20,7 @@ export const TodoContent = styled.p`
 export const TodoButtons = styled.div`
   display: flex;
   justify-content: flex-end;
+  position: relative;
 `;
 
 export const Button = styled.button`
@@ -32,4 +34,17 @@ export const Button = styled.button`
   &:hover {
     background-color: #bbb;
   }
+`;
+
+export const DetailButton = styled.button`
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  background-color: #f8f9fa;
+  color: #495057;
+  cursor: pointer;
+  z-index: 1;
 `;

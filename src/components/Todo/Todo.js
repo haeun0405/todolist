@@ -1,22 +1,20 @@
 import React from "react";
-import { TodoWrapper, TodoTitle, TodoContent, TodoButtons, Button } from "./Todo.styles";
+import { TodoWrapper, TodoTitle, TodoContent, TodoButtons, Button, DetailButton } from "./Todo.styles";
+import { Link } from "react-router-dom";
 
 const Todo = ({ todo, toggleTodoStatus, deleteTodo }) => {
-  const onToggleClick = () => {
-    toggleTodoStatus(todo.id);
-  };
-
-  const onDeleteClick = () => {
-    deleteTodo(todo.id);
-  };
-
   return (
     <TodoWrapper>
-      <TodoTitle>{todo.title}</TodoTitle>
+      <TodoTitle>
+        {todo.title}
+        <DetailButton as={Link} to={`/todo/${todo.id}`}>
+          상세보기
+        </DetailButton>
+      </TodoTitle>
       <TodoContent>{todo.content}</TodoContent>
       <TodoButtons>
-        <Button onClick={onDeleteClick}>삭제</Button>
-        <Button onClick={onToggleClick}>{todo.isDone ? "취소" : "완료"}</Button>
+        <Button onClick={() => toggleTodoStatus(todo.id)}>{todo.completed ? "완료 취소" : "완료"}</Button>
+        <Button onClick={() => deleteTodo(todo.id)}>삭제</Button>
       </TodoButtons>
     </TodoWrapper>
   );
